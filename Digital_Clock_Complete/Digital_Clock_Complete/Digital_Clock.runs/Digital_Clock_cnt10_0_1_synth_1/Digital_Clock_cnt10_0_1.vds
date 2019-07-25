@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sat Jun 15 14:51:11 2019
+# Process ID: 6044
+# Current directory: D:/Desktop/Digital_Clock/Digital_Clock.runs/Digital_Clock_cnt10_0_1_synth_1
+# Command line: vivado.exe -log Digital_Clock_cnt10_0_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Digital_Clock_cnt10_0_1.tcl
+# Log file: D:/Desktop/Digital_Clock/Digital_Clock.runs/Digital_Clock_cnt10_0_1_synth_1/Digital_Clock_cnt10_0_1.vds
+# Journal file: D:/Desktop/Digital_Clock/Digital_Clock.runs/Digital_Clock_cnt10_0_1_synth_1\vivado.jou
+#-----------------------------------------------------------
+source Digital_Clock_cnt10_0_1.tcl -notrace
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP Digital_Clock_cnt10_0_1, cache-ID = 57fa0ad9d61859b0.
+INFO: [Common 17-206] Exiting Vivado at Sat Jun 15 14:51:51 2019...

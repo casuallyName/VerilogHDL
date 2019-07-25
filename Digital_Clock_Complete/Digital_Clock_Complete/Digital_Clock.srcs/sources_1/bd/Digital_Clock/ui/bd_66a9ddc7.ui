@@ -1,0 +1,72 @@
+{
+   ExpandedHierarchyInLayout: "",
+   guistr: "# # String gsaved with Nlview 6.6.11  2017-06-12 bk=1.3860 VDI=40 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port sel_0 -pg 1 -y -580 -defaultsOSRD
+preplace port rst -pg 1 -y -440 -defaultsOSRD
+preplace port key_0 -pg 1 -y -520 -defaultsOSRD
+preplace port clk -pg 1 -y -350 -defaultsOSRD
+preplace port key_1 -pg 1 -y -480 -defaultsOSRD
+preplace port key_2 -pg 1 -y -500 -defaultsOSRD
+preplace portBus LED0 -pg 1 -y -110 -defaultsOSRD
+preplace portBus LED1 -pg 1 -y 20 -defaultsOSRD
+preplace portBus LED_BIT0 -pg 1 -y -20 -defaultsOSRD
+preplace portBus LED_BIT1 -pg 1 -y 0 -defaultsOSRD
+preplace inst cnt24_0 -pg 1 -lvl 10 -y -350 -defaultsOSRD
+preplace inst minute_H -pg 1 -lvl 8 -y -350 -defaultsOSRD
+preplace inst clk_wiz -pg 1 -lvl 1 -y -350 -defaultsOSRD
+preplace inst second_L -pg 1 -lvl 4 -y -350 -defaultsOSRD
+preplace inst clk_out_0 -pg 1 -lvl 2 -y -510 -defaultsOSRD
+preplace inst constant_0 -pg 1 -lvl 1 -y -250 -defaultsOSRD
+preplace inst minute_L -pg 1 -lvl 7 -y -350 -defaultsOSRD
+preplace inst clk_out_1 -pg 1 -lvl 5 -y -500 -defaultsOSRD
+preplace inst constant_1 -pg 1 -lvl 1 -y -160 -defaultsOSRD
+preplace inst clk_out_2 -pg 1 -lvl 8 -y -490 -defaultsOSRD
+preplace inst constant_2 -pg 1 -lvl 1 -y -70 -defaultsOSRD
+preplace inst constant_3 -pg 1 -lvl 1 -y 20 -defaultsOSRD
+preplace inst Mux2to1_DF_0 -pg 1 -lvl 6 -y -360 -defaultsOSRD
+preplace inst display_0 -pg 1 -lvl 8 -y -120 -defaultsOSRD
+preplace inst Mux2to1_DF_1 -pg 1 -lvl 3 -y -360 -defaultsOSRD
+preplace inst display_1 -pg 1 -lvl 5 -y -10 -defaultsOSRD
+preplace inst clk_div -pg 1 -lvl 2 -y -360 -defaultsOSRD
+preplace inst Mux2to1_DF_2 -pg 1 -lvl 9 -y -360 -defaultsOSRD
+preplace inst concat -pg 1 -lvl 2 -y -100 -defaultsOSRD
+preplace inst second_H -pg 1 -lvl 5 -y -350 -defaultsOSRD
+preplace netloc clk_div_clk_out 1 2 1 N
+preplace netloc cnt6_0_cnt 1 7 2 680 -250 900
+preplace netloc xlconstant_1_dout 1 1 1 -620
+preplace netloc clk_out_0_out 1 2 1 -390
+preplace netloc xlconstant_2_dout 1 1 1 -610
+preplace netloc minute_H_carry 1 8 1 N
+preplace netloc clk_out_1_out 1 5 1 270
+preplace netloc cnt10_0_cnt 1 4 4 40J -290 NJ -290 N -290 640
+preplace netloc Mux2to1_DF_0_out 1 6 1 N
+preplace netloc Mux2to1_DF_2_out 1 9 1 N
+preplace netloc display_1_led 1 5 6 NJ 0 NJ 0 NJ 0 NJ 0 NJ 0 1280J
+preplace netloc display_0_led 1 8 3 NJ -110 NJ -110 NJ
+preplace netloc key_2_1 1 0 8 NJ -500 -610J -440 NJ -440 -170J -430 NJ -430 280J -500 NJ -500 NJ
+preplace netloc display_0_en 1 8 3 NJ -130 NJ -130 1300J
+preplace netloc cnt24_0_data_H 1 7 4 660 -280 NJ -280 NJ -280 1290
+preplace netloc clk_1 1 0 1 N
+preplace netloc sel_0_1 1 0 9 NJ -580 NJ -580 -370J -270 NJ -270 NJ -270 290 -270 N -270 N -270 910
+preplace netloc xlconcat_0_dout 1 2 6 NJ -100 NJ -100 30J -100 N -100 N -100 N
+preplace netloc xlconstant_0_dout 1 1 1 -590
+preplace netloc display_1_en 1 5 6 NJ -20 NJ -20 NJ -20 NJ -20 NJ -20 1290J
+preplace netloc second_L_cnt 1 4 1 10
+preplace netloc cnt10_0_carry 1 7 1 N
+preplace netloc second_H_carry 1 5 1 N
+preplace netloc key_1_1 1 0 5 NJ -480 -590J -450 -380J -510 NJ -510 NJ
+preplace netloc Mux2to1_DF_1_out 1 3 1 N
+preplace netloc rst_n_0_1 1 0 10 NJ -440 -620J -430 NJ -430 -180 -290 30 -280 N -280 470 -280 650 -290 N -290 1090
+preplace netloc Net 1 1 7 -610 -280 N -280 N -280 20 -160 NJ -160 N -160 N
+preplace netloc cnt24_0_data_L 1 7 4 670 -260 NJ -260 NJ -260 1300
+preplace netloc clk_out_2_out 1 8 1 900
+preplace netloc key_0_1 1 0 2 NJ -520 NJ
+preplace netloc clk_wiz_clk_out1 1 1 7 -600 -420 -360 -450 N -450 10 -440 290 -480 N -480 N
+preplace netloc xlconstant_3_dout 1 1 1 -600
+preplace netloc second_H_cnt 1 4 2 50 -260 270
+preplace netloc second_L_carry 1 4 1 N
+levelinfo -pg 1 -860 -710 -480 -270 -70 170 380 560 800 1000 1190 1320 -top -800 -bot 320
+",
+}
+0

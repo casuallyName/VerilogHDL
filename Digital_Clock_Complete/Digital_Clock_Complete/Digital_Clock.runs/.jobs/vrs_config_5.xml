@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="Digital_Clock_clkout_0_0_synth_1" LaunchDir="D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/Digital_Clock_clkout_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="Digital_Clock_Mux2to1_DF_0_0_synth_1" LaunchDir="D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/Digital_Clock_Mux2to1_DF_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+

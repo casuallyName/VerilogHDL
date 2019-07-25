@@ -1,0 +1,623 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sat Jun 22 14:27:11 2019
+# Process ID: 2020
+# Current directory: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5180 D:\Desktop\Digital_Clock_Complete\Digital_Clock_Complete\Digital_Clock.xpr
+# Log file: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/vivado.log
+# Journal file: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.xpr
+INFO: [Project 1-313] Project file moved from 'D:/Desktop/Digital_Clock' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_import'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/Xilinx/Vivado/2017.4/data/ip'.
+open_project: Time (s): cpu = 00:00:39 ; elapsed = 00:00:30 . Memory (MB): peak = 786.164 ; gain = 145.320
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Sat Jun 22 14:29:28 2019] Launched synth_1...
+Run output will be captured here: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/synth_1/runme.log
+open_bd_design {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd}
+Adding cell -- xilinx.com:ip:clk_wiz:5.4 - clk_wiz
+Adding cell -- xilinx.com:user:clk_div:1.0 - clk_div
+Adding cell -- xilinx.com:user:cnt10:1.0 - second_L
+Adding cell -- xilinx.com:user:cnt6:1.0 - second_H
+Adding cell -- xilinx.com:user:cnt10:1.0 - minute_L
+Adding cell -- xilinx.com:user:cnt6:1.0 - minute_H
+Adding cell -- xilinx.com:user:cnt24:1.0 - Hour
+Adding cell -- xilinx.com:user:display:1.0 - display_1
+Adding cell -- xilinx.com:user:display:1.0 - display_0
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - constant_3
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - constant_1
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - constant_2
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - constant_0
+Adding cell -- xilinx.com:ip:xlconcat:2.1 - concat
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_div/clk_out(undef) and /second_L/clk(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /second_L/carry(undef) and /second_H/clk(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /second_H/carry(undef) and /minute_L/clk(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /minute_L/carry(undef) and /minute_H/clk(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /minute_H/carry(undef) and /Hour/clk(clk)
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_wiz/clk_out1(clk) and /clk_div/clk_in(undef)
+Successfully read diagram <Digital_Clock> from BD file <D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd>
+open_bd_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:14 . Memory (MB): peak = 915.367 ; gain = 101.070
+update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_import'.
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:clkout:1.0 clkout_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:Mux2to1_DF:1.0 Mux2to1_DF_0
+endgroup
+delete_bd_objs [get_bd_nets second_H_carry]
+connect_bd_net [get_bd_pins Mux2to1_DF_0/out] [get_bd_pins minute_L/clk]
+WARNING: [BD 41-1731] Type mismatch between connected pins: /Mux2to1_DF_0/out(undef) and /minute_L/clk(clk)
+connect_bd_net [get_bd_pins second_H/carry] [get_bd_pins Mux2to1_DF_0/b]
+set_property location {5 318 -570} [get_bd_cells Mux2to1_DF_0]
+connect_bd_net [get_bd_pins clkout_0/out] [get_bd_pins Mux2to1_DF_0/a]
+connect_bd_net [get_bd_pins clkout_0/clk] [get_bd_pins clk_wiz/clk_out1]
+startgroup
+make_bd_pins_external  [get_bd_cells clkout_0]
+make_bd_intf_pins_external  [get_bd_cells clkout_0]
+INFO: [BD 5-409] No interface pins to be made external for /clkout_0
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_cells Mux2to1_DF_0]
+make_bd_intf_pins_external  [get_bd_cells Mux2to1_DF_0]
+INFO: [BD 5-409] No interface pins to be made external for /Mux2to1_DF_0
+endgroup
+generate_target all [get_files  D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd]
+CRITICAL WARNING: [BD 41-1367] The port name 'out' of cell '/clkout_0' is a reserved keyword in a Hardware Description Language. Please consider renaming the port.
+CRITICAL WARNING: [BD 41-1367] The port name 'out' of cell '/Mux2to1_DF_0' is a reserved keyword in a Hardware Description Language. Please consider renaming the port.
+CRITICAL WARNING: [BD 41-1348] Reset pin /Hour/rst (associated clock /Hour/clk) is connected to asynchronous reset source /rst.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /minute_H/carry.
+WARNING: [BD 41-927] Following properties on pin /display_1/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=/clk_wiz_clk_out1 
+WARNING: [BD 41-927] Following properties on pin /display_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=/clk_wiz_clk_out1 
+Wrote  : <D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd> 
+Wrote  : <D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ui/bd_66a9ddc7.ui> 
+VHDL Output written to : D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/synth/Digital_Clock.v
+VHDL Output written to : D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/sim/Digital_Clock.v
+VHDL Output written to : D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/hdl/Digital_Clock_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_div .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block second_L .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block second_H .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block minute_L .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block minute_H .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Hour .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block display_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block display_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block constant_3 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block constant_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block constant_2 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block constant_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block concat .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clkout_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Mux2to1_DF_0 .
+Exporting to file D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/hw_handoff/Digital_Clock.hwh
+Generated Block Design Tcl file D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/hw_handoff/Digital_Clock_bd.tcl
+Generated Hardware Definition File D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/synth/Digital_Clock.hwdef
+catch { config_ip_cache -export [get_ips -all Digital_Clock_clkout_0_0] }
+catch { config_ip_cache -export [get_ips -all Digital_Clock_Mux2to1_DF_0_0] }
+export_ip_user_files -of_objects [get_files D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd]
+launch_runs -jobs 4 {Digital_Clock_clkout_0_0_synth_1 Digital_Clock_Mux2to1_DF_0_0_synth_1}
+[Sat Jun 22 14:31:55 2019] Launched Digital_Clock_clkout_0_0_synth_1, Digital_Clock_Mux2to1_DF_0_0_synth_1...
+Run output will be captured here:
+Digital_Clock_clkout_0_0_synth_1: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/Digital_Clock_clkout_0_0_synth_1/runme.log
+Digital_Clock_Mux2to1_DF_0_0_synth_1: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/Digital_Clock_Mux2to1_DF_0_0_synth_1/runme.log
+export_simulation -of_objects [get_files D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd] -directory D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_user_files/sim_scripts -ip_user_files_dir D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_user_files -ipstatic_source_dir D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/modelsim} {questa=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/questa} {riviera=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/riviera} {activehdl=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Sat Jun 22 14:33:49 2019] Launched synth_1...
+Run output will be captured here: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tcsg324-1
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_cnt24_0_0/Digital_Clock_cnt24_0_0.dcp' for cell 'Digital_Clock_i/Hour'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_Mux2to1_DF_0_0/Digital_Clock_Mux2to1_DF_0_0.dcp' for cell 'Digital_Clock_i/Mux2to1_DF_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_div_0_0/Digital_Clock_clk_div_0_0.dcp' for cell 'Digital_Clock_i/clk_div'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0.dcp' for cell 'Digital_Clock_i/clk_wiz'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clkout_0_0/Digital_Clock_clkout_0_0.dcp' for cell 'Digital_Clock_i/clkout_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_xlconcat_0_0/Digital_Clock_xlconcat_0_0.dcp' for cell 'Digital_Clock_i/concat'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_xlconstant_3_0/Digital_Clock_xlconstant_3_0.dcp' for cell 'Digital_Clock_i/constant_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_xlconstant_1_0/Digital_Clock_xlconstant_1_0.dcp' for cell 'Digital_Clock_i/constant_1'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_xlconstant_2_0/Digital_Clock_xlconstant_2_0.dcp' for cell 'Digital_Clock_i/constant_2'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_xlconstant_0_0/Digital_Clock_xlconstant_0_0.dcp' for cell 'Digital_Clock_i/constant_3'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_display_0_1/Digital_Clock_display_0_1.dcp' for cell 'Digital_Clock_i/display_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_display_0_0/Digital_Clock_display_0_0.dcp' for cell 'Digital_Clock_i/display_1'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_cnt6_0_2/Digital_Clock_cnt6_0_2.dcp' for cell 'Digital_Clock_i/minute_H'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_cnt10_0_1/Digital_Clock_cnt10_0_1.dcp' for cell 'Digital_Clock_i/minute_L'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_cnt6_0_1/Digital_Clock_cnt6_0_1.dcp' for cell 'Digital_Clock_i/second_H'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_cnt10_0_0/Digital_Clock_cnt10_0_0.dcp' for cell 'Digital_Clock_i/second_L'
+INFO: [Netlist 29-17] Analyzing 29 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Device 21-403] Loading part xc7a35tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0_board.xdc] for cell 'Digital_Clock_i/clk_wiz/inst'
+Finished Parsing XDC File [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0_board.xdc] for cell 'Digital_Clock_i/clk_wiz/inst'
+Parsing XDC File [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0.xdc] for cell 'Digital_Clock_i/clk_wiz/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1928.516 ; gain = 563.992
+Finished Parsing XDC File [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0.xdc] for cell 'Digital_Clock_i/clk_wiz/inst'
+Parsing XDC File [D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/constrs_1/new/Digital_Clock_XDC.xdc]
+Finished Parsing XDC File [D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/constrs_1/new/Digital_Clock_XDC.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 1928.516 ; gain = 829.184
+set_property IOSTANDARD LVCMOS33 [get_ports [list key_0]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list sel_0]]
+place_ports key_0 R11
+set_property package_pin "" [get_ports [list  sel_0]]
+place_ports sel_0 N4
+save_constraints
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.106 . Memory (MB): peak = 1928.516 ; gain = 0.000
+[Sat Jun 22 14:37:48 2019] Launched impl_1...
+Run output will be captured here: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 1928.516 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+open_bd_design {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd}
+delete_bd_objs [get_bd_nets key_0_1] [get_bd_nets clkout_0_out] [get_bd_cells clkout_0]
+update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_import'.
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:clk_out:1.0 clk_out_0
+endgroup
+connect_bd_net [get_bd_pins clk_out_0/out] [get_bd_pins Mux2to1_DF_0/a]
+connect_bd_net [get_bd_pins clk_out_0/key] [get_bd_pins clk_out_0/out]
+delete_bd_objs [get_bd_nets clk_out_0_out]
+connect_bd_net [get_bd_pins clk_out_0/key] [get_bd_pins clk_out_0/out]
+connect_bd_net [get_bd_pins clk_out_0/out] [get_bd_pins clk_out_0/clk]
+WARNING: [BD 41-1731] Type mismatch between connected pins: /clk_out_0/out(undef) and /clk_out_0/clk(clk)
+delete_bd_objs [get_bd_nets clk_out_0_out]
+connect_bd_net [get_bd_ports key_0] [get_bd_pins clk_out_0/key]
+connect_bd_net [get_bd_pins clk_out_0/clk] [get_bd_pins clk_wiz/clk_out1]
+connect_bd_net [get_bd_pins clk_out_0/out] [get_bd_pins Mux2to1_DF_0/a]
+generate_target all [get_files  D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd]
+CRITICAL WARNING: [BD 41-1367] The port name 'out' of cell '/Mux2to1_DF_0' is a reserved keyword in a Hardware Description Language. Please consider renaming the port.
+CRITICAL WARNING: [BD 41-1367] The port name 'out' of cell '/clk_out_0' is a reserved keyword in a Hardware Description Language. Please consider renaming the port.
+CRITICAL WARNING: [BD 41-1348] Reset pin /Hour/rst (associated clock /Hour/clk) is connected to asynchronous reset source /rst.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /minute_H/carry.
+WARNING: [BD 41-927] Following properties on pin /display_1/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=/clk_wiz_clk_out1 
+WARNING: [BD 41-927] Following properties on pin /display_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=/clk_wiz_clk_out1 
+Wrote  : <D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd> 
+Wrote  : <D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ui/bd_66a9ddc7.ui> 
+VHDL Output written to : D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/synth/Digital_Clock.v
+VHDL Output written to : D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/sim/Digital_Clock.v
+VHDL Output written to : D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/hdl/Digital_Clock_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_div .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block second_L .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block second_H .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block minute_L .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block minute_H .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Hour .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block display_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block display_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block constant_3 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block constant_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block constant_2 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block constant_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block concat .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Mux2to1_DF_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_out_0 .
+Exporting to file D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/hw_handoff/Digital_Clock.hwh
+Generated Block Design Tcl file D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/hw_handoff/Digital_Clock_bd.tcl
+Generated Hardware Definition File D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/synth/Digital_Clock.hwdef
+catch { config_ip_cache -export [get_ips -all Digital_Clock_clk_out_0_0] }
+export_ip_user_files -of_objects [get_files D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd]
+launch_runs -jobs 4 Digital_Clock_clk_out_0_0_synth_1
+[Sat Jun 22 14:52:22 2019] Launched Digital_Clock_clk_out_0_0_synth_1...
+Run output will be captured here: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/Digital_Clock_clk_out_0_0_synth_1/runme.log
+export_simulation -of_objects [get_files D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd] -directory D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_user_files/sim_scripts -ip_user_files_dir D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_user_files -ipstatic_source_dir D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/modelsim} {questa=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/questa} {riviera=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/riviera} {activehdl=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sat Jun 22 14:53:58 2019] Launched synth_1...
+Run output will be captured here: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/synth_1/runme.log
+[Sat Jun 22 14:53:58 2019] Launched impl_1...
+Run output will be captured here: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+close_design
+close_design: Time (s): cpu = 00:00:03 ; elapsed = 00:00:14 . Memory (MB): peak = 2628.156 ; gain = 0.000
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:Mux2to1_DF:1.0 Mux2to1_DF_1
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:Mux2to1_DF:1.0 Mux2to1_DF_2
+endgroup
+set_property location {7.5 781 -561} [get_bd_cells Mux2to1_DF_2]
+delete_bd_objs [get_bd_nets key_0_1]
+delete_bd_objs [get_bd_ports key_0]
+set_property location {2 -407 -510} [get_bd_cells clk_out_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:clk_out:1.0 clk_out_1
+endgroup
+set_property location {2 -406 -642} [get_bd_cells clk_out_1]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:clk_out:1.0 clk_out_2
+endgroup
+delete_bd_objs [get_bd_nets clk_out_0_out]
+delete_bd_objs [get_bd_nets clk_div_clk_out]
+connect_bd_net [get_bd_pins clk_div/clk_out] [get_bd_pins Mux2to1_DF_1/a]
+connect_bd_net [get_bd_pins clk_out_0/out] [get_bd_pins Mux2to1_DF_1/b]
+connect_bd_net [get_bd_ports sel_0] [get_bd_pins Mux2to1_DF_1/sel]
+set_property location {5 215 -508} [get_bd_cells Mux2to1_DF_0]
+set_property location {5.5 281 -520} [get_bd_cells Mux2to1_DF_0]
+delete_bd_objs [get_bd_nets clk_div_clk_out]
+delete_bd_objs [get_bd_nets clk_out_0_out]
+connect_bd_net [get_bd_pins clk_out_0/out] [get_bd_pins Mux2to1_DF_1/a]
+connect_bd_net [get_bd_pins clk_out_1/out] [get_bd_pins Mux2to1_DF_0/a]
+connect_bd_net [get_bd_pins clk_div/clk_out] [get_bd_pins Mux2to1_DF_1/b]
+connect_bd_net [get_bd_pins Mux2to1_DF_1/out] [get_bd_pins second_L/clk]
+WARNING: [BD 41-1731] Type mismatch between connected pins: /Mux2to1_DF_1/out(undef) and /second_L/clk(clk)
+set_property location {6 282 -459} [get_bd_cells Mux2to1_DF_0]
+set_property location {6 275 -366} [get_bd_cells Mux2to1_DF_0]
+set_property location {3 -303 -373} [get_bd_cells Mux2to1_DF_1]
+set_property location {3 -300 -370} [get_bd_cells Mux2to1_DF_1]
+set_property location {3 -303 -360} [get_bd_cells Mux2to1_DF_1]
+set_property location {6 297 -362} [get_bd_cells Mux2to1_DF_0]
+delete_bd_objs [get_bd_nets cnt6_0_carry]
+connect_bd_net [get_bd_pins minute_H/carry] [get_bd_pins Mux2to1_DF_2/b]
+connect_bd_net [get_bd_pins Mux2to1_DF_2/out] [get_bd_pins Hour/clk]
+WARNING: [BD 41-1731] Type mismatch between connected pins: /Mux2to1_DF_2/out(undef) and /Hour/clk(clk)
+set_property location {9 906 -381} [get_bd_cells Mux2to1_DF_2]
+set_property location {9 902 -361} [get_bd_cells Mux2to1_DF_2]
+connect_bd_net [get_bd_ports sel_0] [get_bd_pins Mux2to1_DF_2/sel]
+connect_bd_net [get_bd_pins clk_out_2/out] [get_bd_pins Mux2to1_DF_2/a]
+set_property location {5 54 -505} [get_bd_cells clk_out_1]
+set_property location {6 363 -570} [get_bd_cells clk_out_2]
+set_property location {8 735 -493} [get_bd_cells clk_out_2]
+connect_bd_net [get_bd_pins clk_out_1/clk] [get_bd_pins clk_wiz/clk_out1]
+connect_bd_net [get_bd_pins clk_out_2/clk] [get_bd_pins clk_wiz/clk_out1]
+set_property location {-868 -579} [get_bd_ports sel_0]
+set_property location {-866 -421} [get_bd_ports rst]
+set_property location {-860 -419} [get_bd_ports rst]
+delete_bd_objs [get_bd_nets clk_in1_0_1]
+set_property location {-875 -419} [get_bd_ports rst]
+set_property location {-866 -441} [get_bd_ports rst]
+connect_bd_net [get_bd_ports clk] [get_bd_pins clk_wiz/clk_in1]
+startgroup
+make_bd_pins_external  [get_bd_cells clk_out_0]
+make_bd_intf_pins_external  [get_bd_cells clk_out_0]
+INFO: [BD 5-409] No interface pins to be made external for /clk_out_0
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_cells clk_out_1]
+make_bd_intf_pins_external  [get_bd_cells clk_out_1]
+INFO: [BD 5-409] No interface pins to be made external for /clk_out_1
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_cells clk_out_2]
+make_bd_intf_pins_external  [get_bd_cells clk_out_2]
+INFO: [BD 5-409] No interface pins to be made external for /clk_out_2
+endgroup
+save_bd_design
+Wrote  : <D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd> 
+Wrote  : <D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ui/bd_66a9ddc7.ui> 
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+CRITICAL WARNING: [BD 41-1367] The port name 'out' of cell '/Mux2to1_DF_0' is a reserved keyword in a Hardware Description Language. Please consider renaming the port.
+CRITICAL WARNING: [BD 41-1367] The port name 'out' of cell '/clk_out_0' is a reserved keyword in a Hardware Description Language. Please consider renaming the port.
+CRITICAL WARNING: [BD 41-1367] The port name 'out' of cell '/Mux2to1_DF_1' is a reserved keyword in a Hardware Description Language. Please consider renaming the port.
+CRITICAL WARNING: [BD 41-1367] The port name 'out' of cell '/Mux2to1_DF_2' is a reserved keyword in a Hardware Description Language. Please consider renaming the port.
+CRITICAL WARNING: [BD 41-1367] The port name 'out' of cell '/clk_out_1' is a reserved keyword in a Hardware Description Language. Please consider renaming the port.
+CRITICAL WARNING: [BD 41-1367] The port name 'out' of cell '/clk_out_2' is a reserved keyword in a Hardware Description Language. Please consider renaming the port.
+CRITICAL WARNING: [BD 41-1348] Reset pin /Hour/rst (associated clock /Hour/clk) is connected to asynchronous reset source /rst.
+This may prevent design from meeting timing. Please add Processor System Reset module to create a reset that is synchronous to the associated clock source /Mux2to1_DF_2/out.
+WARNING: [BD 41-927] Following properties on pin /display_1/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=/clk_wiz_clk_out1 
+WARNING: [BD 41-927] Following properties on pin /display_0/clk have been updated from connected ip. They may not be synchronized with cell properties. You can set property on pin directly to confirm the value and resolve the warning.
+	CLK_DOMAIN=/clk_wiz_clk_out1 
+Wrote  : <D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd> 
+VHDL Output written to : D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/synth/Digital_Clock.v
+VHDL Output written to : D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/sim/Digital_Clock.v
+VHDL Output written to : D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/hdl/Digital_Clock_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_div .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block second_L .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block second_H .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block minute_L .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block minute_H .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Hour .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block display_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block display_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block constant_3 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block constant_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block constant_2 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block constant_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block concat .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Mux2to1_DF_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_out_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Mux2to1_DF_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Mux2to1_DF_2 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_out_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_out_2 .
+Exporting to file D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/hw_handoff/Digital_Clock.hwh
+Generated Block Design Tcl file D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/hw_handoff/Digital_Clock_bd.tcl
+Generated Hardware Definition File D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/synth/Digital_Clock.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP Digital_Clock_Mux2to1_DF_1_0, cache-ID = abcabdf36630f094; cache size = 0.516 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP Digital_Clock_Mux2to1_DF_2_0, cache-ID = abcabdf36630f094; cache size = 0.516 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP Digital_Clock_clk_out_1_0, cache-ID = 501ce06568c846d0; cache size = 0.516 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP Digital_Clock_clk_out_2_0, cache-ID = 501ce06568c846d0; cache size = 0.516 MB.
+[Sat Jun 22 15:04:24 2019] Launched synth_1...
+Run output will be captured here: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 2654.520 ; gain = 26.363
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tcsg324-1
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_cnt24_0_0/Digital_Clock_cnt24_0_0.dcp' for cell 'Digital_Clock_i/Hour'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_Mux2to1_DF_0_0/Digital_Clock_Mux2to1_DF_0_0.dcp' for cell 'Digital_Clock_i/Mux2to1_DF_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_Mux2to1_DF_1_0/Digital_Clock_Mux2to1_DF_1_0.dcp' for cell 'Digital_Clock_i/Mux2to1_DF_1'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_Mux2to1_DF_2_0/Digital_Clock_Mux2to1_DF_2_0.dcp' for cell 'Digital_Clock_i/Mux2to1_DF_2'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_div_0_0/Digital_Clock_clk_div_0_0.dcp' for cell 'Digital_Clock_i/clk_div'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_out_0_0/Digital_Clock_clk_out_0_0.dcp' for cell 'Digital_Clock_i/clk_out_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_out_1_0/Digital_Clock_clk_out_1_0.dcp' for cell 'Digital_Clock_i/clk_out_1'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_out_2_0/Digital_Clock_clk_out_2_0.dcp' for cell 'Digital_Clock_i/clk_out_2'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0.dcp' for cell 'Digital_Clock_i/clk_wiz'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_xlconcat_0_0/Digital_Clock_xlconcat_0_0.dcp' for cell 'Digital_Clock_i/concat'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_xlconstant_3_0/Digital_Clock_xlconstant_3_0.dcp' for cell 'Digital_Clock_i/constant_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_xlconstant_1_0/Digital_Clock_xlconstant_1_0.dcp' for cell 'Digital_Clock_i/constant_1'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_xlconstant_2_0/Digital_Clock_xlconstant_2_0.dcp' for cell 'Digital_Clock_i/constant_2'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_xlconstant_0_0/Digital_Clock_xlconstant_0_0.dcp' for cell 'Digital_Clock_i/constant_3'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_display_0_1/Digital_Clock_display_0_1.dcp' for cell 'Digital_Clock_i/display_0'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_display_0_0/Digital_Clock_display_0_0.dcp' for cell 'Digital_Clock_i/display_1'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_cnt6_0_2/Digital_Clock_cnt6_0_2.dcp' for cell 'Digital_Clock_i/minute_H'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_cnt10_0_1/Digital_Clock_cnt10_0_1.dcp' for cell 'Digital_Clock_i/minute_L'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_cnt6_0_1/Digital_Clock_cnt6_0_1.dcp' for cell 'Digital_Clock_i/second_H'
+INFO: [Project 1-454] Reading design checkpoint 'd:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_cnt10_0_0/Digital_Clock_cnt10_0_0.dcp' for cell 'Digital_Clock_i/second_L'
+INFO: [Netlist 29-17] Analyzing 31 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0_board.xdc] for cell 'Digital_Clock_i/clk_wiz/inst'
+Finished Parsing XDC File [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0_board.xdc] for cell 'Digital_Clock_i/clk_wiz/inst'
+Parsing XDC File [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0.xdc] for cell 'Digital_Clock_i/clk_wiz/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0.xdc:57]
+Finished Parsing XDC File [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0.xdc] for cell 'Digital_Clock_i/clk_wiz/inst'
+Parsing XDC File [D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/constrs_1/new/Digital_Clock_XDC.xdc]
+Finished Parsing XDC File [D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/constrs_1/new/Digital_Clock_XDC.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 2762.227 ; gain = 107.566
+set_property IOSTANDARD LVCMOS33 [get_ports [list key_1]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list key_2]]
+startgroup
+set_property package_pin "" [get_ports [list  {LED0[7]} {LED0[6]} {LED0[5]} {LED0[4]} {LED0[3]} {LED0[2]} {LED0[1]} {LED0[0]}]]
+place_ports key_1 R15
+endgroup
+place_ports key_2 V1
+place_ports {LED0[7]} D5
+place_ports {LED0[6]} B2
+place_ports {LED0[5]} B3
+startgroup
+set_property package_pin "" [get_ports [list  {LED1[7]} {LED1[6]} {LED1[5]} {LED1[4]} {LED1[3]} {LED1[2]} {LED1[1]} {LED1[0]}]]
+place_ports {LED0[4]} A1
+endgroup
+place_ports {LED0[3]} B1
+place_ports {LED0[2]} A3
+place_ports {LED0[1]} A4
+place_ports {LED0[0]} B4
+place_ports {LED1[7]} H2
+place_ports {LED1[6]} D2
+place_ports {LED1[5]} E2
+startgroup
+set_property package_pin "" [get_ports [list  {LED_BIT0[3]} {LED_BIT0[2]} {LED_BIT0[1]} {LED_BIT0[0]}]]
+place_ports {LED1[4]} F3
+endgroup
+place_ports {LED1[3]} F4
+place_ports {LED1[2]} D3
+place_ports {LED1[1]} E3
+place_ports {LED1[0]} D4
+place_ports {LED_BIT0[3]} G2
+place_ports {LED_BIT0[2]} C2
+place_ports {LED_BIT0[1]} C1
+place_ports {LED_BIT0[0]} H1
+save_constraints
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd]
+refresh_design
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0_board.xdc] for cell 'Digital_Clock_i/clk_wiz/inst'
+Finished Parsing XDC File [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0_board.xdc] for cell 'Digital_Clock_i/clk_wiz/inst'
+Parsing XDC File [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0.xdc] for cell 'Digital_Clock_i/clk_wiz/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0.xdc:57]
+Finished Parsing XDC File [d:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ip/Digital_Clock_clk_wiz_0_0/Digital_Clock_clk_wiz_0_0.xdc] for cell 'Digital_Clock_i/clk_wiz/inst'
+Parsing XDC File [D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/constrs_1/new/Digital_Clock_XDC.xdc]
+Finished Parsing XDC File [D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/constrs_1/new/Digital_Clock_XDC.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+refresh_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2780.949 ; gain = 18.723
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sat Jun 22 15:12:23 2019] Launched synth_1...
+Run output will be captured here: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/synth_1/runme.log
+[Sat Jun 22 15:12:24 2019] Launched impl_1...
+Run output will be captured here: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+open_bd_design {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd}
+open_bd_design {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd}
+set_property location {3 -267 -501} [get_bd_cells Mux2to1_DF_1]
+set_property location {3 -283 -484} [get_bd_cells Mux2to1_DF_1]
+set_property location {3 -282 -488} [get_bd_cells Mux2to1_DF_1]
+set_property location {6 361 -485} [get_bd_cells Mux2to1_DF_0]
+set_property location {9 993 -459} [get_bd_cells Mux2to1_DF_2]
+set_property location {9 1000 -358} [get_bd_cells Mux2to1_DF_2]
+set_property location {6 361 -365} [get_bd_cells Mux2to1_DF_0]
+set_property location {3 -284 -382} [get_bd_cells Mux2to1_DF_1]
+set_property location {3 -283 -366} [get_bd_cells Mux2to1_DF_1]
+set_property location {3 -282 -356} [get_bd_cells Mux2to1_DF_1]
+set_property location {8 777 89} [get_bd_cells display_0]
+set_property location {5 152 -54} [get_bd_cells display_1]
+set_property location {5 152 17} [get_bd_cells display_1]
+set_property location {8 773 -122} [get_bd_cells display_0]
+set_property location {5 163 -15} [get_bd_cells display_1]
+save_bd_design
+Wrote  : <D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/ui/bd_66a9ddc7.ui> 
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Sat Jun 22 15:44:19 2019] Launched impl_1...
+Run output will be captured here: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Jun 22 15:47:34 2019...

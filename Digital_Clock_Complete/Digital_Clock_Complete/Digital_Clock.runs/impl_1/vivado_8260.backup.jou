@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sat Jun 22 15:13:24 2019
+# Process ID: 8260
+# Current directory: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1
+# Command line: vivado.exe -log Digital_Clock_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Digital_Clock_wrapper.tcl -notrace
+# Log file: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.vdi
+# Journal file: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source Digital_Clock_wrapper.tcl -notrace

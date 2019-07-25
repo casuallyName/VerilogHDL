@@ -1,0 +1,262 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sat Jun 22 14:27:11 2019
+# Process ID: 2020
+# Current directory: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5180 D:\Desktop\Digital_Clock_Complete\Digital_Clock_Complete\Digital_Clock.xpr
+# Log file: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/vivado.log
+# Journal file: D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+open_bd_design {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd}
+update_ip_catalog -rebuild
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:clkout:1.0 clkout_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:Mux2to1_DF:1.0 Mux2to1_DF_0
+endgroup
+delete_bd_objs [get_bd_nets second_H_carry]
+connect_bd_net [get_bd_pins Mux2to1_DF_0/out] [get_bd_pins minute_L/clk]
+connect_bd_net [get_bd_pins second_H/carry] [get_bd_pins Mux2to1_DF_0/b]
+set_property location {5 318 -570} [get_bd_cells Mux2to1_DF_0]
+connect_bd_net [get_bd_pins clkout_0/out] [get_bd_pins Mux2to1_DF_0/a]
+connect_bd_net [get_bd_pins clkout_0/clk] [get_bd_pins clk_wiz/clk_out1]
+startgroup
+make_bd_pins_external  [get_bd_cells clkout_0]
+make_bd_intf_pins_external  [get_bd_cells clkout_0]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_cells Mux2to1_DF_0]
+make_bd_intf_pins_external  [get_bd_cells Mux2to1_DF_0]
+endgroup
+generate_target all [get_files  D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd]
+catch { config_ip_cache -export [get_ips -all Digital_Clock_clkout_0_0] }
+catch { config_ip_cache -export [get_ips -all Digital_Clock_Mux2to1_DF_0_0] }
+export_ip_user_files -of_objects [get_files D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd]
+launch_runs -jobs 4 {Digital_Clock_clkout_0_0_synth_1 Digital_Clock_Mux2to1_DF_0_0_synth_1}
+export_simulation -of_objects [get_files D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd] -directory D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_user_files/sim_scripts -ip_user_files_dir D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_user_files -ipstatic_source_dir D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/modelsim} {questa=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/questa} {riviera=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/riviera} {activehdl=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+set_property IOSTANDARD LVCMOS33 [get_ports [list key_0]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list sel_0]]
+place_ports key_0 R11
+set_property package_pin "" [get_ports [list  sel_0]]
+place_ports sel_0 N4
+save_constraints
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+open_bd_design {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd}
+delete_bd_objs [get_bd_nets key_0_1] [get_bd_nets clkout_0_out] [get_bd_cells clkout_0]
+update_ip_catalog -rebuild
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:clk_out:1.0 clk_out_0
+endgroup
+connect_bd_net [get_bd_pins clk_out_0/out] [get_bd_pins Mux2to1_DF_0/a]
+connect_bd_net [get_bd_pins clk_out_0/key] [get_bd_pins clk_out_0/out]
+delete_bd_objs [get_bd_nets clk_out_0_out]
+connect_bd_net [get_bd_pins clk_out_0/key] [get_bd_pins clk_out_0/out]
+connect_bd_net [get_bd_pins clk_out_0/out] [get_bd_pins clk_out_0/clk]
+delete_bd_objs [get_bd_nets clk_out_0_out]
+connect_bd_net [get_bd_ports key_0] [get_bd_pins clk_out_0/key]
+connect_bd_net [get_bd_pins clk_out_0/clk] [get_bd_pins clk_wiz/clk_out1]
+connect_bd_net [get_bd_pins clk_out_0/out] [get_bd_pins Mux2to1_DF_0/a]
+generate_target all [get_files  D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd]
+catch { config_ip_cache -export [get_ips -all Digital_Clock_clk_out_0_0] }
+export_ip_user_files -of_objects [get_files D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd]
+launch_runs -jobs 4 Digital_Clock_clk_out_0_0_synth_1
+export_simulation -of_objects [get_files D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd] -directory D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_user_files/sim_scripts -ip_user_files_dir D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_user_files -ipstatic_source_dir D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/modelsim} {questa=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/questa} {riviera=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/riviera} {activehdl=D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+close_design
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:Mux2to1_DF:1.0 Mux2to1_DF_1
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:Mux2to1_DF:1.0 Mux2to1_DF_2
+endgroup
+set_property location {7.5 781 -561} [get_bd_cells Mux2to1_DF_2]
+delete_bd_objs [get_bd_nets key_0_1]
+delete_bd_objs [get_bd_ports key_0]
+set_property location {2 -407 -510} [get_bd_cells clk_out_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:clk_out:1.0 clk_out_1
+endgroup
+set_property location {2 -406 -642} [get_bd_cells clk_out_1]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:clk_out:1.0 clk_out_2
+endgroup
+delete_bd_objs [get_bd_nets clk_out_0_out]
+delete_bd_objs [get_bd_nets clk_div_clk_out]
+connect_bd_net [get_bd_pins clk_div/clk_out] [get_bd_pins Mux2to1_DF_1/a]
+connect_bd_net [get_bd_pins clk_out_0/out] [get_bd_pins Mux2to1_DF_1/b]
+connect_bd_net [get_bd_ports sel_0] [get_bd_pins Mux2to1_DF_1/sel]
+set_property location {5 215 -508} [get_bd_cells Mux2to1_DF_0]
+set_property location {5.5 281 -520} [get_bd_cells Mux2to1_DF_0]
+delete_bd_objs [get_bd_nets clk_div_clk_out]
+delete_bd_objs [get_bd_nets clk_out_0_out]
+connect_bd_net [get_bd_pins clk_out_0/out] [get_bd_pins Mux2to1_DF_1/a]
+connect_bd_net [get_bd_pins clk_out_1/out] [get_bd_pins Mux2to1_DF_0/a]
+connect_bd_net [get_bd_pins clk_div/clk_out] [get_bd_pins Mux2to1_DF_1/b]
+connect_bd_net [get_bd_pins Mux2to1_DF_1/out] [get_bd_pins second_L/clk]
+set_property location {6 282 -459} [get_bd_cells Mux2to1_DF_0]
+set_property location {6 275 -366} [get_bd_cells Mux2to1_DF_0]
+set_property location {3 -303 -373} [get_bd_cells Mux2to1_DF_1]
+set_property location {3 -300 -370} [get_bd_cells Mux2to1_DF_1]
+set_property location {3 -303 -360} [get_bd_cells Mux2to1_DF_1]
+set_property location {6 297 -362} [get_bd_cells Mux2to1_DF_0]
+delete_bd_objs [get_bd_nets cnt6_0_carry]
+connect_bd_net [get_bd_pins minute_H/carry] [get_bd_pins Mux2to1_DF_2/b]
+connect_bd_net [get_bd_pins Mux2to1_DF_2/out] [get_bd_pins Hour/clk]
+set_property location {9 906 -381} [get_bd_cells Mux2to1_DF_2]
+set_property location {9 902 -361} [get_bd_cells Mux2to1_DF_2]
+connect_bd_net [get_bd_ports sel_0] [get_bd_pins Mux2to1_DF_2/sel]
+connect_bd_net [get_bd_pins clk_out_2/out] [get_bd_pins Mux2to1_DF_2/a]
+set_property location {5 54 -505} [get_bd_cells clk_out_1]
+set_property location {6 363 -570} [get_bd_cells clk_out_2]
+set_property location {8 735 -493} [get_bd_cells clk_out_2]
+connect_bd_net [get_bd_pins clk_out_1/clk] [get_bd_pins clk_wiz/clk_out1]
+connect_bd_net [get_bd_pins clk_out_2/clk] [get_bd_pins clk_wiz/clk_out1]
+set_property location {-868 -579} [get_bd_ports sel_0]
+set_property location {-866 -421} [get_bd_ports rst]
+set_property location {-860 -419} [get_bd_ports rst]
+delete_bd_objs [get_bd_nets clk_in1_0_1]
+set_property location {-875 -419} [get_bd_ports rst]
+set_property location {-866 -441} [get_bd_ports rst]
+connect_bd_net [get_bd_ports clk] [get_bd_pins clk_wiz/clk_in1]
+startgroup
+make_bd_pins_external  [get_bd_cells clk_out_0]
+make_bd_intf_pins_external  [get_bd_cells clk_out_0]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_cells clk_out_1]
+make_bd_intf_pins_external  [get_bd_cells clk_out_1]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_cells clk_out_2]
+make_bd_intf_pins_external  [get_bd_cells clk_out_2]
+endgroup
+save_bd_design
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+set_property IOSTANDARD LVCMOS33 [get_ports [list key_1]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list key_2]]
+startgroup
+set_property package_pin "" [get_ports [list  {LED0[7]} {LED0[6]} {LED0[5]} {LED0[4]} {LED0[3]} {LED0[2]} {LED0[1]} {LED0[0]}]]
+place_ports key_1 R15
+endgroup
+place_ports key_2 V1
+place_ports {LED0[7]} D5
+place_ports {LED0[6]} B2
+place_ports {LED0[5]} B3
+startgroup
+set_property package_pin "" [get_ports [list  {LED1[7]} {LED1[6]} {LED1[5]} {LED1[4]} {LED1[3]} {LED1[2]} {LED1[1]} {LED1[0]}]]
+place_ports {LED0[4]} A1
+endgroup
+place_ports {LED0[3]} B1
+place_ports {LED0[2]} A3
+place_ports {LED0[1]} A4
+place_ports {LED0[0]} B4
+place_ports {LED1[7]} H2
+place_ports {LED1[6]} D2
+place_ports {LED1[5]} E2
+startgroup
+set_property package_pin "" [get_ports [list  {LED_BIT0[3]} {LED_BIT0[2]} {LED_BIT0[1]} {LED_BIT0[0]}]]
+place_ports {LED1[4]} F3
+endgroup
+place_ports {LED1[3]} F4
+place_ports {LED1[2]} D3
+place_ports {LED1[1]} E3
+place_ports {LED1[0]} D4
+place_ports {LED_BIT0[3]} G2
+place_ports {LED_BIT0[2]} C2
+place_ports {LED_BIT0[1]} C1
+place_ports {LED_BIT0[0]} H1
+save_constraints
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd]
+refresh_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+close_hw
+open_bd_design {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd}
+open_bd_design {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.srcs/sources_1/bd/Digital_Clock/Digital_Clock.bd}
+set_property location {3 -267 -501} [get_bd_cells Mux2to1_DF_1]
+set_property location {3 -283 -484} [get_bd_cells Mux2to1_DF_1]
+set_property location {3 -282 -488} [get_bd_cells Mux2to1_DF_1]
+set_property location {6 361 -485} [get_bd_cells Mux2to1_DF_0]
+set_property location {9 993 -459} [get_bd_cells Mux2to1_DF_2]
+set_property location {9 1000 -358} [get_bd_cells Mux2to1_DF_2]
+set_property location {6 361 -365} [get_bd_cells Mux2to1_DF_0]
+set_property location {3 -284 -382} [get_bd_cells Mux2to1_DF_1]
+set_property location {3 -283 -366} [get_bd_cells Mux2to1_DF_1]
+set_property location {3 -282 -356} [get_bd_cells Mux2to1_DF_1]
+set_property location {8 777 89} [get_bd_cells display_0]
+set_property location {5 152 -54} [get_bd_cells display_1]
+set_property location {5 152 17} [get_bd_cells display_1]
+set_property location {8 773 -122} [get_bd_cells display_0]
+set_property location {5 163 -15} [get_bd_cells display_1]
+save_bd_design
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {D:/Desktop/Digital_Clock_Complete/Digital_Clock_Complete/Digital_Clock.runs/impl_1/Digital_Clock_wrapper.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
