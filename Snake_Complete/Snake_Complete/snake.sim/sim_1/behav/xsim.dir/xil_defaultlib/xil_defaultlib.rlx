@@ -1,0 +1,15 @@
+0.6
+2016.3
+Oct 10 2016
+19:46:48
+C:/Users/zhangwei/Desktop/Vivado/basys3/snake/snake.sim/sim_1/behav/glbl.v,1476033524,verilog,,,,glbl,,,,,,,,
+C:/Users/zhangwei/Desktop/Vivado/basys3/snake/snake.srcs/sim_1/new/snake_tb.v,1487034058,verilog,,,,snake_tb,,,,,,,,
+C:/Users/zhangwei/Desktop/Vivado/basys3/snake/snake.srcs/sources_1/new/Game_Ctrl_Unit.v,1486805672,verilog,,,,Game_Ctrl_Unit,,,,,,,,
+C:/Users/zhangwei/Desktop/Vivado/basys3/snake/snake.srcs/sources_1/new/Key.v,1485326787,verilog,,,,Key,,,,,,,,
+C:/Users/zhangwei/Desktop/Vivado/basys3/snake/snake.srcs/sources_1/new/Seg_Display.v,1487033391,verilog,,,,Seg_Display,,,,,,,,
+C:/Users/zhangwei/Desktop/Vivado/basys3/snake/snake.srcs/sources_1/new/Snake.v,1486822807,verilog,,,,Snake,,,,,,,,
+C:/Users/zhangwei/Desktop/Vivado/basys3/snake/snake.srcs/sources_1/new/Snake_Eatting_Apple.v,1485326877,verilog,,,,Snake_Eatting_Apple,,,,,,,,
+C:/Users/zhangwei/Desktop/Vivado/basys3/snake/snake.srcs/sources_1/new/VGA_Control.v,1485326905,verilog,,,,VGA_Control,,,,,,,,
+C:/Users/zhangwei/Desktop/Vivado/basys3/snake/snake.srcs/sources_1/new/VGA_top.v,1485187682,verilog,,,,VGA_top,,,,,,,,
+C:/Users/zhangwei/Desktop/Vivado/basys3/snake/snake.srcs/sources_1/new/clk_unit.v,1485325785,verilog,,,,clk_unit,,,,,,,,
+C:/Users/zhangwei/Desktop/Vivado/basys3/snake/snake.srcs/sources_1/new/top_greedy_snake.v,1486821314,verilog,,,,top_greedy_snake,,,,,,,,
